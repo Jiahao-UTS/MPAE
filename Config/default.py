@@ -2,7 +2,7 @@ from yacs.config import CfgNode as CN
 
 _C = CN()
 _C.GPUS = (0, )
-_C.WORKERS = 0
+_C.WORKERS = 16
 _C.PIN_MEMORY = True
 _C.AUTO_RESUME = True
 _C.PRINT_FREQ = 10
@@ -36,15 +36,15 @@ _C.TRAIN.SHUFFLE = True
 _C.TRAIN.LR = 0.0005
 _C.TRAIN.LR_FACTOR = 0.2
 _C.TRAIN.OPTIMIZER = "adam"
-_C.TRAIN.BATCH_SIZE_PER_GPU = 1
+_C.TRAIN.BATCH_SIZE_PER_GPU = 64
 _C.TRAIN.BEGIN_EPOCH = 0
 _C.TRAIN.NUM_EPOCH = 100
 
 _C.TEST = CN()
-_C.TEST.BATCH_SIZE_PER_GPU = 2
+_C.TEST.BATCH_SIZE_PER_GPU = 128
 
 _C.CELE = CN()
-_C.CELE.ROOT = '../Data/CelebA/'
+_C.CELE.ROOT = './Data/CelebA/'
 _C.CELE.FRACTION = 1.0
 _C.CELE.SCALE = 0.05
 _C.CELE.ROTATION = 15
@@ -52,7 +52,7 @@ _C.CELE.TRANSLATION = 0.05
 _C.CELE.FLIP = 0.5
 
 _C.CUB = CN()
-_C.CUB.ROOT = '../Data/CUB/'
+_C.CUB.ROOT = './Data/CUB/'
 _C.CUB.FRACTION = 1.0
 _C.CUB.SCALE = 0.05
 _C.CUB.ROTATION = 15
@@ -60,8 +60,8 @@ _C.CUB.TRANSLATION = 0.05
 _C.CUB.FLIP = 0.5
 
 _C.PartImageNet = CN()
-_C.PartImageNet.ROOT = '../Data/PartImageNetOOD/'
-_C.PartImageNet.Seg_ROOT = '../Data/PartImageNet_Seg/'
+_C.PartImageNet.ROOT = './Data/PartImageNetOOD/'
+_C.PartImageNet.Seg_ROOT = './Data/PartImageNet_Seg/'
 _C.PartImageNet.FRACTION = 1.0
 _C.PartImageNet.SCALE = 0.05
 _C.PartImageNet.ROTATION = 15
